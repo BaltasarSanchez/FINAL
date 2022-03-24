@@ -1,0 +1,29 @@
+.card {
+        padding-top: 40px;
+        width: 400px;
+        height: 100px;
+        border: 50px solid green;
+        margin: 50px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 2px 16px;
+}
+
+.mail {
+  color: rgb(255, 0, 128);
+  font-weight: bold;
+}
+.time {
+  color: rgb(94, 10, 105);
+}
+
+.mensaje {
+  color: green;
+  font-style: italic;
+}

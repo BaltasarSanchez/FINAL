@@ -1,0 +1,646 @@
+{
+	"info": {
+		"_postman_id": "5563ff64-3663-4d44-99d1-badd2a050986",
+		"name": "Programacion Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "3 Ingresa un producto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"PRODUCTO_ID\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Papa Noel\",\r\n    \"descripcion\": \"El mejor Papa Noel\",\r\n    \"categoria\": \"Navidad\",\r\n    \"codigo\": 124,\r\n    \"foto\": \"https://cdn1.iconfinder.com/data/icons/christmas-ultra-color/60/012_-_Tired_Santa-512.png\",\r\n    \"precio\": 1500,\r\n    \"stock\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/api/productos",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 Obtiene todos los productos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/productos",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 Obtiene un producto",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/productos/{{PRODUCTO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"{{PRODUCTO_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 Actualiza producto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"timestamp\": \"1646164754932\",\r\n        \"nombre\": \"test\",\r\n        \"descripcion\": \"Producto test\",\r\n        \"categoria\": \"dummy\",\r\n        \"codigo\": \"123\",\r\n        \"foto\": \"http://localhost:8080/images/IMG_20180917_104633.jpg\",\r\n        \"precio\": 130,\r\n        \"stock\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/api/productos/{{PRODUCTO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"{{PRODUCTO_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "22 Elimina un producto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/productos/{{PRODUCTO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"{{PRODUCTO_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carritos",
+			"item": [
+				{
+					"name": "8 Crea carrito",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"CARRITO_ID\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"direccion\": \"Juan B Justo 9B\",\r\n    \"email\": \"{{EMAIL}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/api/carritos",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9 / 10 Agrega productos al carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{CARRITO_ID}}/productos/{{PRODUCTO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{CARRITO_ID}}",
+								"productos",
+								"{{PRODUCTO_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11 Borra producto del carrito",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{CARRITO_ID}}/productos/{{PRODUCTO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{CARRITO_ID}}",
+								"productos",
+								"{{PRODUCTO_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12 Lista todos los carritos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13 Lista carrito por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{CARRITO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{CARRITO_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14 Lista carrito por email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{EMAIL}}/usuario",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{EMAIL}}",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15 Lista productos del carrito",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{CARRITO_ID}}/productos",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{CARRITO_ID}}",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16 Vende carrito (genera y guarda orden)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"ORDEN_ID\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{CARRITO_ID}}/venta",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{CARRITO_ID}}",
+								"venta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17 Delete carrito",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/carritos/{{CARRITO_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"carritos",
+								"{{CARRITO_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordenes",
+			"item": [
+				{
+					"name": "18 Obtiene todas las ordenes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/ordenes",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"ordenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19 Obtiene orden por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/ordenes/{{ORDEN_ID}}",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"ordenes",
+								"{{ORDEN_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20 Obtiene orden por email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{SERVER}}/api/ordenes/{{EMAIL}}/usuario",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"ordenes",
+								"{{EMAIL}}",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "7 login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", JSON.parse(responseBody).access_token);\r",
+									"postman.setEnvironmentVariable(\"EMAIL\", JSON.parse(responseBody).email);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"pipo@pipo.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/login",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 / 21 login admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", JSON.parse(responseBody).access_token);\r",
+									"postman.setEnvironmentVariable(\"EMAIL\", JSON.parse(responseBody).email);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@e.commerse\",\r\n    \"password\": \"4dm1n\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/login",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6 Registro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", JSON.parse(responseBody).access_token);\r",
+									"postman.setEnvironmentVariable(\"EMAIL\", JSON.parse(responseBody).email);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pipo@pipo.com\",\r\n    \"password\": \"1234\",\r\n    \"password1\": \"1234\",\r\n    \"nombre\": \"Pipo\",\r\n    \"apellido\": \"Apellido\",\r\n    \"telefono\": \"+541144441234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/registro",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"registro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "email_usuario",
+			"value": ""
+		}
+	]
+}
